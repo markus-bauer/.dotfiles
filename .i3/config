@@ -238,10 +238,16 @@ client.background       #ffffff
 
 #------ function keys
 bindsym Mod4+F3 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-# && pactl set-sink-mute @DEFAULT_SINK@ -1 
 bindsym Mod4+F4 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% 
-# && pactl set-sink-mute @DEFAULT_SINK@ 0 
 bindsym Mod4+F2 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle 
+
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -3%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +3% 
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle 
+
+bindsym XF86MonBrightnessUp exec light -A 2 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 2 # decrease screen brightness
+
 
 #---floating terminal
 #bindsym Mod1+F12 exec --no-startup-id urxvt -name metask
