@@ -1,0 +1,90 @@
+#--- sync cache.db with dropbox 
+cache-file "~/Dropbox/Config_files/newsbeuter/cache.db"
+
+#--- keybindings
+
+browser "firefox %u"
+
+#---- Custom Bindings (similar to vim and ranger) ----
+unbind-key k
+bind-key k up
+unbind-key j
+bind-key j down
+unbind-key l 
+bind-key l open
+
+# next-feed                     j 	Go to the next feed. This only works from the article list.
+bind-key L next-feed
+# prev-feed                     k 	Go to the previous feed. This only works from the article list.
+bind-key H prev-feed
+
+bind-key U pageup
+bind-key D pagedown
+#standard: open ENTER 	
+#standard: quit q
+bind-key h quit
+#standard: reload                        r
+#standard: reload-all                    R
+#standard: save                          s
+#standard: redraw                        ^L 	Redraw the screen.
+#standard: open-search                   / 	Opens the search dialog. When a search is done in the article list, then the search operation only applies to the articles of the current feed, otherwise to all articles.
+# standard: bookmark                      ^B 	Bookmark currently selected article or URL.
+unbind-key ^B
+bind-key m bookmark
+#standard: help                          ? 	Runs the help screen.
+#standard: next-unread                   n 	Jump to the next unread article.
+#standard: prev-unread                   p 	Jump to the previous unread article.
+#standard: next                          J 	Jump to next article.
+#standard: prev                          K 	Jump to previous article.
+#standard: next-unread-feed              ^N 	Go to the next feed with unread articles. This only works from the article list.
+#standard: prev-unread-feed              ^P 	Go to the previous feed with unread articles. This only works from the article list.
+unbind-key o
+bind-key o sort 
+unbind-key O
+bind-key O rev-sort
+
+unbind-key b
+bind-key b  open-in-browser-and-mark-read 
+unbind-key B
+bind-key B  open-all-in-browser
+
+bind-key z toggle-show-read-feeds
+
+# toggle-article-read           N 	Toggle the read flag for the currently selected article.
+unbind-key N  
+#show-urls                     u 	Show all URLs in the article in a list (similar to urlview).
+unbind-key u
+bind-key u toggle-article-read
+bind-key SPACE toggle-article-read
+# mark-all-feeds-read           C 	Mark articles in all feeds read.
+unbind-key C 
+# random-unread                 ^K 	Jump to a random unread article.
+unbind-key ^K
+# toggle-source-view            ^U 	Toggles between the HTML view and the source view in the article view.
+unbind-key ^U
+# clear-tag                     ^T 	Clear current tag.
+unbind-key ^T 
+# goto-url                      # 	Open the URL dialog and then opens specified URL.
+unbind-key \#
+
+#standard: set-tag                       t 	Select tag.
+
+#standard: enqueue                       e 	Add the podcast download URL of the current article (if any is found) to the podcast download queue (see the respective section in the documentation for more information on podcast support).
+#edit-urls                     E 	Edit the list of subscribed URLs. newsbeuter will start the editor configured through the $VISUAL environment variable (if unset, $EDITOR is used; fallback
+unbind-key E
+#standard: reload-urls                   ^R 	Reload the URLs configuration file.
+unbind-key ^R
+
+#standard: cmdline                       <colon> 	Open the command line.
+
+#standard: set-filter                    F 	Set a filter.
+#standard: select-filter                 f 	Select a predefined filter.
+#standard: clear-filter                  ^F 	Clear currently set filter.
+#standard: edit-flags                    ^E 	Edit the flags of the currently selected article.
+#standard: delete-article                D 	Delete the currently selected article.
+#standard: purge-deleted                 $ 	Purge all article that are marked as deleted from the article list.
+#standard: view-dialogs                  v 	View list of open dialogs.
+#standard: close-dialog                  ^X 	Close currently selected dialog.
+#standard: next-dialog                   ^V 	Go to next dialog.
+#standard: prev-dialog                   ^G 	Go to previous dialog.
+#standard: pipe-to                       | 	Pipe article to command.

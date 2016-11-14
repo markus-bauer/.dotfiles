@@ -1,0 +1,25 @@
+background no
+out_to_console yes
+out_to_x no
+own_window no
+update_interval 2
+total_run_times 0
+short_units yes
+pad_percents 3
+cpu_avg_samples 2
+#{"full_text":"Eth: ${if_up eth0}eth0 ${addr eth0} ${endif}"}
+#[{"full_text":"Disk ${fs_free}"},
+#{"full_text":"Processes_running: ${running_processes}"},
+#{"full_text": "${if_existing /sys/class/power_supply/BAT1} Bat: ${battery_percent BAT1}% ${if_existing /sys/class/power_supply/ACAD/online} --charging $endif $else Netz $endif",  "color":"red"},
+#{"full_text": "Vol: ${exec amixer -c 0 get PCM |grep "Front Left: "|grep -oE [[:digit:]]*%}"},
+
+TEXT
+[
+{"full_text":"${if_up wlp2s0} ${wireless_essid wlp2s0} (${addr wlp2s0}  ${wireless_link_qual_perc wlp2s0}%) D:${downspeed wlp2s0} U:${upspeed wlp2s0}${endif}", "color":"\#d79921"},
+{"full_text": "CPU: ${cpu}%", "color":"\#458588"},
+{"full_text": "RAM: $mem/$memmax","color":"\#458588"},
+#{"full_text": "Vol: ${mixer vol}"},
+{"full_text": "${time %a, %d.%m.%Y}", "color":"\#d65d0e"},
+#{"full_text": "${if_existing /sys/class/power_supply/BAT1} Akku: ${battery_short BAT1}$else---${endif}", "color":"\#F9F5F5"},
+{"full_text": "${time %H:%M:%S}", "color":"\#fe8019"}
+],
