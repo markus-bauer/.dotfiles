@@ -38,5 +38,5 @@ then
         location="$(echo "$(cd "$(dirname "$d")"; pwd)")"
     fi
     # open terminal
-    gnome-terminal -e "bash -c \"cd \\\"$location\\\"; echo \\\"open: \\\"\\\"$d\\\"; exec bash\""
+    gnome-terminal -e "bash -c \"cd \\\"$location\\\"; exec bash\""
 fi
