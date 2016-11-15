@@ -257,7 +257,8 @@ bindsym XF86MonBrightnessDown exec light -U 2 # decrease screen brightness
 
 
 #--- french dictionary ---
-bindsym Mod1+0 exec bash $HOME/scripts/french_dictionary/dmenu_grep_dict.sh
+bindsym Mod1+0 exec bash $HOME/Dropbox/mydictionaries/dmenu_dictionary/dmenu_grep_dict.sh "$HOME/Dropbox/mydictionaries/frde.txt"
+bindsym Mod1+9 exec bash $HOME/Dropbox/mydictionaries/dmenu_dictionary/dmenu_grep_dict.sh "$HOME/Dropbox/mydictionaries/ende.txt"
 
 #---- hotkeys ---
 #-- save image 
