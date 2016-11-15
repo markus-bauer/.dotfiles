@@ -14,7 +14,7 @@ exec --no-startup-id pasystray  # pulse-audio
 exec --no-startup-id nm-applet  # network-manager
 exec --no-startup-id setxkbmap -option caps:none  # disable capslock
 #exec xcompmgr -n # for transparency
-#exec --no-startup-id dropbox start
+exec --no-startup-id dropbox start
 
 #---- borders -------
 #new_window none
