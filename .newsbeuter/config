@@ -12,6 +12,8 @@ unbind-key j
 bind-key j down
 unbind-key l 
 bind-key l open
+unbind-key RIGHT
+bind-key RIGHT open
 
 # next-feed                     j 	Go to the next feed. This only works from the article list.
 bind-key L next-feed
@@ -23,6 +25,8 @@ bind-key D pagedown
 #standard: open ENTER 	
 #standard: quit q
 bind-key h quit
+unbind-key LEFT
+bind-key LEFT quit
 #standard: reload                        r
 #standard: reload-all                    R
 #standard: save                          s
