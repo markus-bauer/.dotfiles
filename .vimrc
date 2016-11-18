@@ -26,7 +26,7 @@ Bundle 'mhinz/vim-startify'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-voom/VOom'
 Plugin 'junegunn/vim-easy-align'
-
+Plugin 'chrisbra/csv.vim'
 
 "Plugin 'ivanov/vim-ipython'
 "Plugin 'Yggdroot/indentLine' <-- kills performance in big files (only testedin latex)

@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -56,25 +56,30 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
+pc1="\[$(tput setaf 043)\]"
+pc2="\[$(tput setaf 043)\]"
+pc3="\[$(tput setaf 178)\]"
+pc4="\[$(tput setaf 168)\]"
+pc5="\[$(tput setaf 15)\]"
+pbold="\[$(tput bold)\]"
+preset="\[$(tput sgr0)\]"
+
+if [ "$color_prompt" = yes ]; then
+    PS1="${pbold}${pc1}\u${preset} @ ${pbold}${pc2}\H[\l]${preset}: ${pbold}${pc3}\w\n${pbold}${pc4}\$${preset}${pc5} "
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+   PS1="\u @ \H[\l]: \w\n\\$\[$(tput sgr0)\] "
 fi
 unset color_prompt force_color_prompt
 
-
-
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+#If this is an xterm set the title to user@host:dir
+#case "$TERM" in
+#xterm*|rxvt*)
+    #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    #;;
+#*)
+    #;;
+#esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -100,13 +105,13 @@ alias l='ls -CF'
 set -o vi 
 set show-mode-in-prompt on
 
-# powerline
-if [ -f `which powerline-daemon` ]; then
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  . /usr/share/powerline/bindings/bash/powerline.sh
-fi
+## powerline
+#if [ -f `which powerline-daemon` ]; then
+  #powerline-daemon -q
+  #POWERLINE_BASH_CONTINUATION=1
+  #POWERLINE_BASH_SELECT=1
+  #. /usr/share/powerline/bindings/bash/powerline.sh
+#fi
 
 # aliases conda
 alias conda='/home/markus/anaconda3/bin/conda'
@@ -128,6 +133,8 @@ RANGER_LOAD_DEFAULT_RC=FALSE; export RANGER_LOAD_DEFAULT_RC
 alias rr='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias news='newsbeuter -u ~/Dropbox/Config_files/newsbeuter/urls'
 
+PATH=$PATH:'/home/markus/scripts/'
+export PATH 
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

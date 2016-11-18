@@ -158,6 +158,8 @@ bindsym Mod1+Ctrl+End exec bash /home/markus/.i3/dmenu_shutdown_launcher.sh
 #---- application specific window settings 
 # launch gvim floating (for note-taking)
 for_window [class="Gvim"] floating enable
+# floating for matplotlib
+for_window [class="Tk"] floating enable
 
 #---- screenshots ----
 #launch shutter (screenshots)
