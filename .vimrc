@@ -22,18 +22,21 @@ Bundle 'mhinz/vim-startify'
 "Bundle 'gerw/vim-latex-suite'
 "Plugin 'xuhdev/vim-latex-live-preview'
 "Bundle 'kien/ctrlp.vim'
-"Bundle 'tpope/vim-surround.git'
+Bundle 'tpope/vim-surround.git'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-voom/VOom'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'chrisbra/csv.vim'
+"Plugin 'chrisbra/csv.vim'
 
 "Plugin 'ivanov/vim-ipython'
 "Plugin 'Yggdroot/indentLine' <-- kills performance in big files (only testedin latex)
-Bundle 'vim-scripts/AutoComplPop'
+"Bundle 'vim-scripts/AutoComplPop'
 "Bundle 'xolox/vim-easytags'
+Plugin 'majutsushi/tagbar'
 "Bundle 'xolox/vim-misc'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -155,3 +158,35 @@ let g:netrw_liststyle=3
 augroup pandoc_syntax
     au! BufNewFile,BufFilePRe,BufRead *.md set filetype=markdown.pandoc
 augroup END
+
+"-- MyDiff() fix
+set diffexpr=MyDiff()
+function MyDiff()
+    let opt = ''
+    if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+    if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+    silent execute '!diff -a ' . opt . v:fname_in . ' ' . v:fname_new . ' > ' . v:fname_out
+endfunction
+
+"--- python 
+let python_highlight_all=1
+syntax on
+
+"---
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+ 
+"--- tagbar
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_left=1
+
+"--- folding
+set foldmethod=indent 
+nnoremap <space>f za
+nnoremap <space>a zM
